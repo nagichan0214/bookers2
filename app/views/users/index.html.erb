@@ -1,1 +1,26 @@
-<h1>index</h1>
+<h1>Users</h1>
+  <div class="col-md-8 offset-md-1">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>image</th>
+          <th>name</th>
+          <th colspan="3"></th>
+        
+      
+
+
+<%= @users.each do |user| %>
+    <%= image_tag post_image.get_image %>
+    <%= image_tag 'default-image.jpg' %>
+    <%= user.name %>
+<%= link_to "Show", user_path(user.id) %>
+  </div>
+<% end %>
+
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+

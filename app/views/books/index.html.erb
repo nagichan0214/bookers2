@@ -1,3 +1,10 @@
+<h1>User info</h1>
+<% @books.each do |book| %>
+ <p>name：<%= book.user.name %></p>
+  <p><%= image_tag book.user.get_profile_image(100,100) %></p>
+  <p>introduction：<%= book.caption %></p>
+<% end %>
+
 <h1>New book</h1>
 <%= form_with modle: @book do |f| %>
   <h4>Title</h4>
