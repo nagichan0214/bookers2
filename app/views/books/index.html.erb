@@ -32,12 +32,29 @@
  <th colspan="3"></th>
 </tr>
 </thead>
-<tbody>
 
+<tbody>
  <% @books.each do |book| %>
-<th><%= image_tag book.user.get_profile_image(100,100) %></th>
-<th><%= book.title %></th>
-<th><%= book.opinion %></th>
+ <tr>
+    <div>
+      <td><%= link_to user_path(book.user) do %>
+      <%= image_tag book.user.get_profile_image(100,100) %>
+      <% end %>
+      </td>
+  <td><%= link_to book_path(book.id) do %>
+    <%= book.title %>
+
+ <% end %>
+ </td>
+
+
+  <td><%= book.opinion %></td>
+
+</div>
+</tr>
 <% end %>
+
+
+
 </tbody>
 </table>

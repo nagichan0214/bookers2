@@ -37,6 +37,13 @@
  <% end %>
  </td>
 <td><%= @book.opinion %></td>
+<td>
+  <% if @book.user == current_user %>
+
+
+  <a class="btn btn-sm btn-danger book_path(@book)" rel="nofollow" data-method="delete" href="<%= book_path(@book) %>">Destroy</a>
+<% end %>
+</td>
 </tr>
 </tbody>
 </table>
