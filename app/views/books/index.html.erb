@@ -1,15 +1,43 @@
 <h1>User info</h1>
-<% @books.each do |book| %>
- <p>name：<%= book.user.name %></p>
-  <p><%= image_tag book.user.get_profile_image(100,100) %></p>
-  <p>introduction：<%= book.caption %></p>
+<p><%= image_tag @user.get_profile_image(100,100) %></p>
+<table>
+ <tr><th>name</th>
+ <th><%= @user.name %></th></tr>
+
+  <tr><th>introduction</th>
+  <th><%= @user.introduction %></th></tr>
+</table>
+<%= link_to edit_user_path(@user) do %>
+<i class="fa-solid fa-user-gear"></i>
 <% end %>
 
+
+
 <h1>New book</h1>
-<%= form_with modle: @book do |f| %>
+<%= form_with model: @book do |f| %>
   <h4>Title</h4>
   <%= f.text_field :title %>
   <h4>Opinion</h4>
   <%= f.text_area :opinion %>
   <%= f.submit 'Create Book' %>
 <% end %>
+
+<h2>Books</h2>
+<table class="table table-hover table-inverse">
+<thead>
+<tr>
+ <th></th>
+ <th>Title</th>
+<th>Opinion</th>
+ <th colspan="3"></th>
+</tr>
+</thead>
+<tbody>
+
+ <% @books.each do |book| %>
+<th><%= image_tag book.user.get_profile_image(100,100) %></th>
+<th><%= book.title %></th>
+<th><%= book.opinion %></th>
+<% end %>
+</tbody>
+</table>
