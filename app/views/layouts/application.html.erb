@@ -56,15 +56,18 @@
      </div>
      </nav>
   </header>
+  <div>
+  <%= flash[:notice] %>
+</div>
     <%= yield %>
     <footer>
-      <div class="center-block">
-      <div class="container mt-5">
-        <div class="mx-auto">
-          <p>CopyRight Infratop.inc</p>
-        </div>
-      </div>
-   </div>
-   </footer>
+       <div class="container mt-5">
+         <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+         </div>
+       </div>
+    </footer>
   </body>
 </html>

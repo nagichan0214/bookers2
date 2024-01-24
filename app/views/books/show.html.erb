@@ -1,24 +1,9 @@
-<h1>User info</h1>
-<p><%= image_tag @user.get_profile_image(100,100) %></p>
-<table>
- <tr><th>name</th>
- <th><%= @user.name %></th></tr>
+<div class="container">
+<div class="row">
+<div class="col-md-3">
 
-  <tr><th>introduction</th>
-  <th><%= @user.introduction %></th></tr>
-</table>
-<%= link_to edit_user_path(@user) do %>
-<i class="fa-solid fa-user-gear"></i>
-<% end %>
-
-<h1>New book</h1>
-<%= form_with model: @newbook do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Opinion</h4>
-  <%= f.text_area :opinion %>
-  <%= f.submit 'Create Book' %>
-<% end %>
+<%= render 'books/list', user: @user, book: @newbook%>
+</div>
 
 <div class="col-md-8 offset-md-1">
 <h1>Book detail</h1>
@@ -37,14 +22,24 @@
  <% end %>
  </td>
 <td><%= @book.opinion %></td>
+
 <td>
-  <% if @book.user == current_user %>
-
-
-  <a class="btn btn-sm btn-danger book_path(@book)" rel="nofollow" data-method="delete" href="<%= book_path(@book) %>">Destroy</a>
+<% if @book.user == current_user %>
+<a class="btn btn-sm btn-success" href="<%= edit_book_path(@book) %>">Edit</a>
 <% end %>
 </td>
+
+<td>
+  <% if @book.user == current_user %>
+ <a class="btn btn-sm btn-danger book_path(@book)" rel="nofollow" data-method="delete" href="<%= book_path(@book) %>">Destroy</a>
+<% end %>
+</td>
+
+
+
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 </div>
