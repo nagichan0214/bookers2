@@ -12,9 +12,8 @@
   <tr><th>introduction</th>
   <th><%= @user.introduction %></th></tr>
 </table>
-<%= link_to edit_user_path(@user) do %>
-<a class="btn btn-outline-secondary btn-block">
-<i class="fa-solid fa-user-gear"></i></a>
+<%= link_to edit_user_path(@user), class:"btn btn-outline-secondary btn-block" do %>
+<i class="fa-solid fa-user-gear"></i>
 <% end %>
 
 

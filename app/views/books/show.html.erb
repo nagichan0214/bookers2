@@ -2,7 +2,7 @@
 <div class="row">
 <div class="col-md-3">
 
-<%= render 'books/list', user: @user, book: @newbook%>
+<%= render 'books/list', user: @book.user, book: @newbook%>
 </div>
 
 <div class="col-md-8 offset-md-1">
@@ -11,17 +11,19 @@
 <tbody>
   <tr>
   <td>
- <%= image_tag @book.user.get_profile_image(100,100) %>
- <br>
  <%= link_to user_path(@user.id) do %>
- <%= @book.user.name %>
+ <%= image_tag @book.user.get_profile_image(100,100) %>
+  <%= @book.user.name %>
  <% end %>
+ <br>
+
  </td>
   <td><%= link_to book_path(@book.id) do %>
     <%= @book.title %>
- <% end %>
+
  </td>
 <td><%= @book.body %></td>
+<% end %>
 
 <td>
 <% if @book.user == current_user %>
